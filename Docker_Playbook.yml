@@ -1,9 +1,9 @@
 ---
-- hosts: webservers
+- hosts: 172.31.15.187,172.31.7.244
   become: true
   tasks: 
     - name: install Docker 
-      apt: 
+      yum: 
         name: docker
         state: present
     - name: start and enable docker 
@@ -11,4 +11,5 @@
         name: docker
         state: started
         enabled: true
+
 
