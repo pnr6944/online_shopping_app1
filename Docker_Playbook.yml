@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+    - name: install Docker 
+      apt: 
+        name: docker
+        state: present
+    - name: start and enable docker 
+      service:
+        name: docker
+        state: started
+        enabled: true
+
