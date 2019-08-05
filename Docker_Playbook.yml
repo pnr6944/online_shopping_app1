@@ -6,10 +6,14 @@
       yum: 
         name: docker
         state: present
-    - name: start and enable docker 
+    - name: start and enable docker
       service:
         name: docker
         state: started
         enabled: true
+    - name: Add ec2-user to Docker Group
+      command: sudo usermod -a -G docker ec2-user
+    - name: Restart Docker
+      command: sudo systemctl restart docker
 
 
