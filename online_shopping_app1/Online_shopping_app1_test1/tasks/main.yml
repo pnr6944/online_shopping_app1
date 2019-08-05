@@ -1,2 +1,17 @@
 ---
 # tasks file for Online_shopping_app1_test1
+- name: Install Java 1.8
+  yum: name=java-1.8.0-openjdk state=present
+- name: install Docker 
+      yum: 
+        name: docker
+        state: present
+    - name: start and enable docker
+      service:
+        name: docker
+        state: started
+        enabled: true
+    - name: Add ec2-user to Docker Group
+      command: sudo usermod -a -G docker ec2-user
+    - name: Restart Docker
+      command: sudo systemctl restart docker

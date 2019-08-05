@@ -1,2 +1,4 @@
 ---
 # handlers file for Online_shopping_app1_test1
+- name: restart docker
+  service: name=docker state=restarted
