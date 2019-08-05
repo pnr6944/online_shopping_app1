@@ -1,5 +1,5 @@
 ---
-- hosts: 172.31.15.187,172.31.7.244
+- hosts: webservers
   become: true
   tasks: 
     - name: install Docker 
